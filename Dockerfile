@@ -1,15 +1,12 @@
-# Node 20 Alpine kullanıyoruz
-FROM node:20-alpine
+# Node 18 Alpine kullanıyoruz
+FROM node:18-alpine
 
 WORKDIR /app
 
-# package.json ve package-lock.json kopyala
 COPY package*.json ./
 
-# Bağımlılıkları yükle
 RUN npm install --production
 
-# Uygulama dosyalarını kopyala
 COPY . .
 
 EXPOSE 3009
